@@ -4,12 +4,10 @@
 
 ## Installation
 
-1 :
-### `npm i`
+1 :`npm i` 
 
-2 :
-### `npm run dev`
+2 : `npm run dev`
 
 Check default
-*Front : localhost :19006
-*Server : localhost 4242
+- Front : localhost :19006
+- Server : localhost 4242
