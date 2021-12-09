@@ -1,4 +1,17 @@
+var { PrismaClient } = require("@prisma/client");
 const axios = require("axios");
+const prisma = new PrismaClient();
+
+export const findOrCreateUser = async (username) => {
+  const result = await getAllUserData(username);
+  const createUser = await prisma.user.create({
+    data: {
+      username: username.trim().toUpperCase(),
+      result,
+    },
+  });
+  return createUser;
+};
 
 export const getAllUserData = async (username) => {
   const user = await fetchUser(username);

@@ -1,14 +1,30 @@
 import { Router } from "express";
-import { getAllUserData } from "./services/user.service";
+import { findOrCreateUser } from "./services/user.service";
+var { PrismaClient } = require("@prisma/client");
+
+const prisma = new PrismaClient();
 const api = Router();
 
 api.get("/:username", async (request, response) => {
-  const { username } = request.params; 
-  const data = await getAllUserData(username) ;
+  const { username } = request.params;
 
-  response.json({
-    data
-  });
+  prisma.user
+    .findFirst({
+      where: {
+        username: username.trim().toUpperCase(),
+      },
+    })
+    .then(async (result) => {
+      result
+        ? response.json({
+            data: result,
+          })
+        : (async () => {
+            response.json({
+              data: await findOrCreateUser(username),
+            });
+          })();
+    });
 });
 
 export default api;
