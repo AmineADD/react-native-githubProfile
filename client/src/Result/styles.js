@@ -5,18 +5,23 @@ export default StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-arround",
-    alignItems: "center",
-    margin: "10px",
+    padding: "2px",
   },
   row: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-arround",
+    flexWrap: "wrap",
   },
   img: {
     borderRadius: "100%",
     width: 100,
     height: 100,
+  },
+  smallImg: {
+    borderRadius: "100%",
+    width: 32,
+    height: 32,
   },
   column: {
     display: "flex",
