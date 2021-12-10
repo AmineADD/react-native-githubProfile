@@ -6,7 +6,13 @@
 
 1 :`npm i` 
 
-2 : `npm run dev`
+2 : `Client / npm run web`
+
+3 : `docker / docker compose up`
+
+4 : `prisma migrate dev`
+
+5 : `Server / npm run dev`
 
 Check default
 - Front : localhost :19006
